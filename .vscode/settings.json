@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Catch Fruit.sln"
+    "dotnet.defaultSolution": "Catch-Fruit.sln"
 }
