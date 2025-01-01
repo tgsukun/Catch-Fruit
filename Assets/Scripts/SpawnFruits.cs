@@ -44,7 +44,7 @@ public class SpawnFruits : MonoBehaviour
             Instantiate(randomFruit, new Vector3(randomX, yDefaultValue, 0), Quaternion.identity);
             activeFruit++;
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
 

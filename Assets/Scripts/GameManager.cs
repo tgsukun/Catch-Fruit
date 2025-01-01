@@ -43,10 +43,9 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
+    
     void GameOver()
     {
-        Debug.Log("Game over");
         Time.timeScale = 0;
         gameOverPanel.SetActive(true);
     }
