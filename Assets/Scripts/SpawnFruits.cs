@@ -32,6 +32,10 @@ public class SpawnFruits : MonoBehaviour
     void Spawn()
     {
         int fruitCount = UnityEngine.Random.Range(1, 3);
+        StartCoroutine(SpawnWithDelay(fruitCount));
+    }
+
+    IEnumerator SpawnWithDelay(int fruitCount) {
         for (var i = 0; i < fruitCount; i++) {
             int randomIndex = UnityEngine.Random.Range(0, Spawner.Length);
             GameObject randomFruit = Spawner[randomIndex];
@@ -39,7 +43,8 @@ public class SpawnFruits : MonoBehaviour
             float randomX = UnityEngine.Random.Range(boundaryLeft, boundaryRight);
             Instantiate(randomFruit, new Vector3(randomX, yDefaultValue, 0), Quaternion.identity);
             activeFruit++;
-            Debug.Log("fruit spawned at " + randomX);
+
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
