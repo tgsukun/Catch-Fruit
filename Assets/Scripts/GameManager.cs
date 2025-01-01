@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public int missedFruits = 0;
     public int maxMissedFruits = 3;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +47,13 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game over");
+        Time.timeScale = 0;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame() 
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
