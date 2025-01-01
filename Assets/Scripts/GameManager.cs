@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    public Text scoreText;
+    public TMP_Text scoreText;
 
     public int missedFruits = 0;
     public int maxMissedFruits = 3;
@@ -26,7 +27,10 @@ public class GameManager : MonoBehaviour
     public void AddScore(int points) 
     {
         score += points;
-        scoreText.text = "Score: " + score;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
     public void FruitMissed() 
